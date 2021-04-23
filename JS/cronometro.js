@@ -76,7 +76,7 @@ function vuelta() {
         //Segunda celda segunda columna
         for (let j = 0; j < 1; j++) {
             let celda = document.createElement("td");
-            let textoCelda = document.createTextNode(`${min}:0${sec_vuelta}:${mili_vuelta}`);
+            let textoCelda = document.createTextNode(`${min}:0${sec_vuelta}.${mili_vuelta}`);
             celda.appendChild(textoCelda);
             fila.appendChild(celda);
         }
