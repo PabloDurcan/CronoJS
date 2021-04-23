@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/cronometro.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cronometro">
+            <div class="minutos">
+                <p id="minutos">00</p>
+            </div>
+            <div class="segundos">
+                <p id="segundos">00</p>
+            </div>
+            <div class="milisegundos">
+                <p id="milisegundos">00</p>
+            </div>
+        </div>
+
+        <div class="botones">
+            <button class="btn inicio" onclick="inicio()" id="iniciar">INICIAR</button>
+            <button class="btn parar" onclick="parar()">PARAR</button>
+            <button class="btn vuelta" onclick="vuelta()">VUELTA</button>
+        </div>
+
+        <table class="tabla">
+            <tbody id="tblBody">
+                <tr class="fila">
+                    <th>VUELTA</th>
+                    <th>HORA</th>
+                    <th>TIEMPO TOTAL</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="JS/cronometro.js"></script>
+</body>
+</html>

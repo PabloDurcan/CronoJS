@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body{
+    font-family: 'Orbitron', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cronometro{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    margin-top: 3rem;
+}
+
+.segundos{
+    padding: 1rem;
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+}
+
+.minutos{
+    padding: 1rem;
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+}
+
+.milisegundos{
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.btn{
+    font-family: 'Orbitron', sans-serif;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.botones{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inicio{
+    background: yellow;
+}
+
+.parar{
+    background: red;
+}
+
+.vuelta{
+    background: rgb(77, 65, 241);
+
+}
+
+.tabla{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    width: 65%;
+    text-align: center;
+}
+
+.fila{
+    font-size: 2rem;
+}
+
+@media (max-width: 600px){
+    .milisegundos{
+        font-size: 1rem;
+    }
+
+    .segundos{
+        font-size: 2rem;
+    }
+
+    .minutos{
+        font-size: 2rem;
+    }
+
+    .btn{
+        font-size: 0.7rem;
+    }
+
+    .tabla{
+        font-size: 0.5rem;
+        width: 90%;
+    }
+
+    .fila{
+        font-size: 0.9rem;
+    }
+}
