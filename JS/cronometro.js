@@ -1,5 +1,6 @@
 let milisegundos = 00;
 let segundos = 00;
+let minutos = 00;
 let verificar = true;
 
 function escribir() { 
@@ -10,6 +11,14 @@ function escribir() {
                 milisegundos  = 00;
                 segundos++;
                 document.getElementById("segundos").textContent = segundos;
+            }
+            if (segundos > 59) {
+                segundos = 0;
+                minutos++;
+                document.getElementById("minutos").textContent = minutos;
+            }
+            if (minutos < 10) {
+                document.getElementById("minutos").textContent = `0${minutos}`
             }
             if (segundos < 10) {
                 document.getElementById("segundos").textContent = `0${segundos}`
@@ -37,12 +46,16 @@ function escribir() {
      clearInterval(id);
      clearInterval(idVuelta)
      verificar = true;
+     let audio = document.getElementById("audio");
+    audio.play();
      
  }
 
 function inicio() { 
     if (verificar == true) {
         escribir();
+        let audio = document.getElementById("audio");
+        audio.play();   
     }
     verificar = false;
  }
