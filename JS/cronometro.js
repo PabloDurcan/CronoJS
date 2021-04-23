@@ -32,11 +32,12 @@ function escribir() {
                 }
             }, 10);
  } 
-
-function parar() { 
-    clearInterval(id);
-    clearInterval(idVuelta)
-    verificar = true;
+ 
+ function parar() { 
+     clearInterval(id);
+     clearInterval(idVuelta)
+     verificar = true;
+     
  }
 
 function inicio() { 
@@ -92,4 +93,6 @@ function vuelta() {
     }
     mili_vuelta = 0;
     sec_vuelta = 0;
+    let audio = document.getElementById("audio");
+    audio.play();
 }
