@@ -1,45 +1,80 @@
-//Lo primero que vamos a crear va a ser una funcion que nos cree una ventana de dialogo en la que vamos a ingresar los datos que le queremos meter a nuestro temporizador
+// Get the modal
+let modal = document.getElementById("myModal");
 
-//Vamos a pasar a la funcion dos parametros, una url que va a ser el html que queremos que aparezca en la ventana y un width que va a ser el ancho de esa ventana emergente que queremos, el alto va a ser definido por el texto
-function jsAbrirDialogo(url,width) { 
-    //Creamos un divpadre con el propio JS, va a ser el "lienzo" de nuestro div hijo, que va a estar delante del divpadre
-    let DivPadre = document.createElement("div");
-    //Asignamos una clase que ya tenemos en nuestras hojas de estilo, en nuestro caso .DivPadre
-    DivPadre.className = "DivPadre";
-    //Asignamos una id de igual manera que la clase
-    DivPadre.id = "DivPadre";
-    
-    
-    //Creamos el divhijo de la misma manera que creamos el padre
-    let DivHijo = document.createElement("div");
-    DivHijo.className = "DivHijo";
-    DivHijo.id = "DivHijo";
-    //Aqui le vamos a agregar el ancho que la funcion esta recibiendo por parametro
-    DivHijo.style.width = width+"vw";
+// Get the button that opens the modal
+let btn = document.getElementById("myBtn");
 
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
 
-    fetch(url)
-    .then(function (res) { 
-        return res.text();
-     })
-    .then(function (texto) { 
-        document.getElementById("DivHijo").innerHTML = texto;
-     })
-
-
-
-    //Asignamos el divpadre que hemos creado al body de nuestro documento
-    document.body.appendChild(DivPadre);
-    //Agregamos el hijo de padre al padre, ahora no es al body directamente sino al divpadre que hemos creado antes
-    DivPadre.appendChild(DivHijo);
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
 }
 
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
-//Eliminar el contenido de la ventana emergente, cerrar la ventana
-function jsCerrarDialogo() { 
-    //Si cogemos el padre y lo eliminamos lo haremos tambien al hijo, el hijo es parte del padre
-    let DivPadre = document.getElementById("DivPadre");
-    document.body.removeChild(DivPadre);
+//Creamos 60 opciones desplegables dentro del modal a traves de una funcion que dentro tendra bucles para generar x numero de opciones
+function generarOpciones() { 
+    for (let i = 1; i < 60; i++) {
+        let x = document.getElementById("selector");
+        let option = document.createElement("option");
+        option.text=i;
+        x.add(option);
+    } 
 
+    for (let i = 1; i < 60; i++) {
+        let x = document.getElementById("selector1");
+        let option = document.createElement("option");
+        option.text=i;
+        x.add(option);
+    } 
+ }
+ generarOpciones();
+
+ //Creamos dos funciones que se enlacen con dos numeros que nos permita aumentar o diminuir los valores de las opciones del select
+ function selectorMasSec(){
+    let contador = document.getElementById("selector1").value;
+    contador++;
+    document.getElementById("selector1").value = contador;
+    if (contador > 59) {
+        document.getElementById("selector1").value = 1;
+    }
+}
+
+function selectorMenosSec(){
+    let contador = document.getElementById("selector1").value;
+    contador--;
+    document.getElementById("selector1").value = contador;
+    if (contador < 1) {
+        document.getElementById("selector1").value = 59;
+    }
+}
+
+function selectorMasMin(){
+    let contador = document.getElementById("selector").value;
+    contador++;
+    document.getElementById("selector").value = contador;
+    if (contador > 59) {
+        document.getElementById("selector").value = 1;
+    }
+}
+
+function selectorMenosMin(){
+    let contador = document.getElementById("selector").value;
+    contador--;
+    document.getElementById("selector").value = contador;
+    if (contador < 1) {
+        document.getElementById("selector").value = 59;
+    }
 }
