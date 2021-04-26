@@ -4,9 +4,12 @@ let minutos = 00;
 let verificar = true;
 
 function escribir() { 
+    //Intervalo del cronometro principal, van a ser los milisegundos los que se inicien y hagan que los segundos y los minutos aumenten hasta cierto punto
     id = setInterval(() => {
+        //Los milisegundos aumentan y esto hará que pase lo mismo con segundos y minutos
             milisegundos++;
             document.getElementById("milisegundos").textContent = milisegundos;
+            //Hacemos condicionales para que el cronometro salga bien: 01,02,03...10,11...
             if (milisegundos > 99) {
                 milisegundos  = 00;
                 segundos++;
@@ -29,15 +32,24 @@ function escribir() {
             
     }, 10);
 
-        //Intervalo para contar las vueltas
+        //Intervalo para contar las vueltas, funciona igual que el intervalo del cronometro principal
         mili_vuelta = 00;
         sec_vuelta = 00;
+        min_vuelta = 00;
 
         idVuelta = setInterval(() => {
                 mili_vuelta++;
+
                 if (mili_vuelta > 99) {
                     mili_vuelta = 00;
                     sec_vuelta++;
+                }
+                if (sec_vuelta > 59) {
+                    sec_vuelta = 00;
+                    min_vuelta++;
+                }
+                if (min_vuelta > 59) {
+                    min_vuelta = 00;
                 }
             }, 10);
  } 
@@ -49,6 +61,7 @@ function escribir() {
      let audio = document.getElementById("audio");
     audio.play();
      
+    console.log(verificar);
  }
 
 function inicio() { 
@@ -58,6 +71,7 @@ function inicio() {
         audio.play();   
     }
     verificar = false;
+    console.log(verificar);
  }
 
  //Iniciamos una variable para contar el numero de vueltas cada vez que se hace click en vueltas
@@ -90,7 +104,19 @@ function vuelta() {
         //Segunda celda segunda columna
         for (let j = 0; j < 1; j++) {
             let celda = document.createElement("td");
-            let textoCelda = document.createTextNode(`${min}:0${sec_vuelta}.${mili_vuelta}`);
+            let textoCelda = document.createTextNode(`${min_vuelta}:${sec_vuelta}.${mili_vuelta}`);
+            //Hacemos la condicion para que la columna hora esté bien escrita, cuando es menor a 10 poner un 0 delante...
+            if (mili_vuelta < 10 && sec_vuelta < 10 && min_vuelta < 10) {
+                textoCelda = document.createTextNode(`0${min_vuelta}:0${sec_vuelta}.0${mili_vuelta}`)
+            }else 
+            if (sec_vuelta < 10 && min_vuelta < 10) {
+                textoCelda = document.createTextNode(`0${min_vuelta}:0${sec_vuelta}.${mili_vuelta}`)
+            }else
+            if (min_vuelta < 10 && mili_vuelta < 10) {
+                textoCelda = document.createTextNode(`${min_vuelta}:0${sec_vuelta}.0${mili_vuelta}`)
+            }else if (min_vuelta < 10) {
+                textoCelda = document.createTextNode(`0${min_vuelta}:${sec_vuelta}.${mili_vuelta}`)
+            }
             celda.appendChild(textoCelda);
             fila.appendChild(celda);
         }

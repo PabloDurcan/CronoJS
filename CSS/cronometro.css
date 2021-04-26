@@ -25,6 +25,7 @@ body{
     align-items: center;
     font-size: 6rem;
     margin-top: 3rem;
+    
 }
 
 .segundos{
@@ -86,29 +87,56 @@ body{
     font-size: 2rem;
 }
 
-@media (max-width: 600px){
+@media (max-width: 850px){
     .milisegundos{
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .segundos{
-        font-size: 2rem;
+        font-size: 2.8rem;
     }
 
     .minutos{
-        font-size: 2rem;
+        font-size: 2.8rem;
     }
 
     .btn{
-        font-size: 0.7rem;
+        font-size: 1.2rem;
     }
 
     .tabla{
-        font-size: 0.5rem;
+        font-size: 1rem;
         width: 90%;
     }
 
     .fila{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 650px){
+    .milisegundos{
+        font-size: 1.3rem;
+    }
+
+    .segundos{
+        font-size: 2.5rem;
+    }
+
+    .minutos{
+        font-size: 2.5rem;
+    }
+
+    .btn{
+        font-size: 0.8rem;
+    }
+
+    .tabla{
         font-size: 0.9rem;
+        width: 90%;
+    }
+
+    .fila{
+        font-size: 1rem;
     }
 }
