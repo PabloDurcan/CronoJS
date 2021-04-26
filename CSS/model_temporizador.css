@@ -1,0 +1,35 @@
+.body{
+    background: white;
+}
+
+.wrapper{
+    font-size: 5rem;
+    opacity: 1;
+}
+
+.cabecera_ventana{
+    width: 100%;
+    font-size: 5vh;
+    background: rgb(62, 62, 192);
+    color: white;
+    opacity: 1;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.eleccion{
+    display: flex;
+    font-size: 2rem;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px;
+}
+
+@media (max-width: 650px){
+    .eleccion{
+        font-size: 1rem;
+    }
+    .wrapper{
+        width: 100%;
+    }
+}

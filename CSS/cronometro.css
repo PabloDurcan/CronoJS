@@ -2,6 +2,7 @@
 
 body{
     font-family: 'Orbitron', sans-serif;
+    background: lightblue;
 }
 
 *{
@@ -23,9 +24,7 @@ body{
     width: 90%;
     justify-content: center;
     align-items: center;
-    font-size: 6rem;
-    margin-top: 3rem;
-    
+    font-size: 6rem;    
 }
 
 .segundos{
@@ -54,6 +53,11 @@ body{
     padding: 0.5rem;
     margin-top: 2rem;
     font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    cursor: pointer;
 }
 
 .botones{
@@ -86,6 +90,30 @@ body{
 .fila{
     font-size: 2rem;
 }
+
+.barra{
+    display: flex;
+    height: fit-content;
+    width: 65%;
+    position: relative;
+    background: gray;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.barra a:hover{
+    background: white;
+    color: black;
+}
+
+.barra a{
+    color: white;
+    text-decoration: none;
+    padding: 2rem;
+    font-size: 1.6rem;
+}
+
+
 
 @media (max-width: 850px){
     .milisegundos{

@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="CSS/cronometro.css">
+    <link rel="stylesheet" href="CSS/temporizador.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 </head>
 <body>
-    <p>Esto es una página a parte</p>
+    
+    <div class="wrapper">
+        <div class="barra">
+            <a href="index.html">Cronometro <i class="fas fa-clock"></i></a>
+        </div>
+        <div class="cronometro">
+            <div class="minutos">
+                <p id="minutos">00</p>
+            </div>
+            <div class="segundos">
+                <p id="segundos">00</p>
+            </div>
+            <div class="milisegundos">
+                <p id="milisegundos">00</p>
+            </div>
+        </div>
+        <div class="botonesTemp">
+            <button class="agregar" onclick="jsAbrirDialogo('model_temporizador.html',75)">Agregar un nuevo temporizador</button>
+        </div>
+    </div>
+    <script src="JS/cronometro.js"></script>
+    <script src="JS/temporizador.js"></script>
 </body>
 </html>
