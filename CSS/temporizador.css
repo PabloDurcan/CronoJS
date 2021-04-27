@@ -119,6 +119,11 @@
     
 }
 
+.barra{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #btns{
     display: flex;
     flex-direction: column;
@@ -205,6 +210,8 @@
 
     .barra{
         width: 60%;
+        display: flex;
+        justify-content: space-evenly;
     }
 
     #milisegundos{
@@ -231,7 +238,7 @@
 
     .close{
         font-size: 1rem;
-        margin-right: 0.5rem;
+        margin-right: 1rem;
     }
 
     .modal-section p{
@@ -245,5 +252,19 @@
 
     #milisegundos{
         font-size: 2.5rem;
+    }
+
+    .modal-content{
+        width: 80%;
+    }
+
+    #btns{
+        width: 70%;
+    }
+
+    #btns_creados{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
     }
 }

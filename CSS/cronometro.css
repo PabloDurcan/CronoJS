@@ -41,6 +41,8 @@ body{
     justify-content: center;
 }
 
+
+
 .milisegundos{
     width: 25%;
     display: flex;
@@ -99,20 +101,29 @@ body{
     background: gray;
     justify-content: center;
     border-radius: 5px;
+    justify-content: space-evenly;
 }
 
-.barra a:hover{
+.barra .enlace-noselect:hover{
     background: white;
     color: black;
 }
 
-.barra a{
+
+.barra .enlace-noselect{
     color: white;
     text-decoration: none;
     padding: 2rem;
     font-size: 1.6rem;
 }
 
+.enlace-select{
+    background: white;
+    color: black;
+    text-decoration: none;
+    padding: 2rem;
+    font-size: 1.6rem;
+}
 
 
 @media (max-width: 850px){

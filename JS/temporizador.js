@@ -1,3 +1,4 @@
+
 // Get the modal
 let modal = document.getElementById("myModal");
 
@@ -177,7 +178,7 @@ function inicioTemp(){
         let horas_temp = document.getElementById("horas").innerHTML;
 
         if (segundos_temp=="0" && minutos_temp=="0" && horas_temp=="0" || segundos_temp=="00" && minutos_temp=="00" && horas_temp=="00") {
-            alert("Introduce algún valor, gracias")
+            alert("INTRODUCE UN VALOR QUE SEA MAYOR A 0 EN ALGUNA DE LAS ENTRADAS");
         }else{
     
             idTemp = setInterval(() => {
@@ -219,7 +220,6 @@ function inicioTemp(){
                         alert("Se acabo");
                         clearInterval(idTemp);
                         verificar_temporizador = true;
-
                         
                     }
                 }
