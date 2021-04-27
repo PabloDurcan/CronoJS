@@ -267,4 +267,19 @@
         display: flex;
         justify-content: space-around;
     }
+
+    
+    .barra .enlace-select{
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .barra .enlace-noselect{
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .barra{
+        width: 80%;
+    }
 }
