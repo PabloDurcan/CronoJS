@@ -30,30 +30,48 @@ function generarOpciones() {
     for (let i = 0; i < 60; i++) {
         let x = document.getElementById("selector");
         let option = document.createElement("option");
-        option.text=i;
-        x.add(option);
+        if (i < 10) {
+            option.text="0"+ i;
+            x.add(option);
+            option.value = i;
+        }else{
+            option.text= i;
+            x.add(option);
+        }
     } 
     //Segundos
     for (let i = 0; i < 60; i++) {
         let x = document.getElementById("selector1");
         let option = document.createElement("option");
-        option.text=i;
-        x.add(option);
+        if (i < 10) {
+            option.text="0"+ i;
+            x.add(option);
+            option.value = i;
+        }else{
+            option.text= i;
+            x.add(option);
+        }
     } 
     
     //Horas
     for (let i = 0; i < 11; i++) {
         let x = document.getElementById("selector2");
         let option = document.createElement("option");
-        option.text=i;
-        x.add(option);
+        if (i < 10) {
+            option.text="0"+ i;
+            x.add(option);
+            option.value = i;
+        }else{
+            option.text= i;
+            x.add(option);
+        }
     } 
      
 
  }
  generarOpciones();
 
- //Creamos dos funciones que se enlacen con dos numeros que nos permita aumentar o diminuir los valores de las opciones del select
+ //Creamos dos funciones que se enlacen con dos botones que nos permitan aumentar o diminuir los valores de las opciones del select
  //Segundos
  function selectorMasSec(){
     let contador = document.getElementById("selector1").value;
@@ -107,7 +125,7 @@ function selectorMenosHoras(){
     contador--;
     document.getElementById("selector2").value = contador;
     if (contador < 0) {
-        document.getElementById("selector2").value = 99;
+        document.getElementById("selector2").value = 10;
     }
 }
 
@@ -124,28 +142,101 @@ function setTemp(){
     let minutos = document.getElementById("selector").value;
     let segundos = document.getElementById("selector1").value;
 
-    //Validamos para que, en caso de elegir opciones menores a 10 pongamos un 0 delante del numero, si es mayor a 10 pondremos el valor de los select en el propio temporizador
-    if (horas < 10) {
-        document.getElementById("horas").textContent = "0" + horas;
-    }else document.getElementById("horas").textContent = horas;
-
-    if (minutos < 10) {
-        document.getElementById("minutos").textContent = "0" + minutos;
-    }else document.getElementById("minutos").textContent = minutos;
-
-    if (segundos < 10) {
-        document.getElementById("milisegundos").textContent = "0" + segundos;
-    }else document.getElementById("milisegundos").textContent = segundos;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("milisegundos").textContent = segundos;
 
     //Si se recarga la pagina crear_boton va a ser true y, por lo tanto, solo vamos a poder crearlo una vez
     if (crear_boton == true) {
         let btn = document.createElement("BUTTON");
         btn.innerHTML = "INICIAR";
         btn.className = "btn-created";
-    
-        document.getElementById("btns").appendChild(btn);
-    }
+        btn.setAttribute("id","btn-created");
+        btn.onclick = inicioTemp;
+        document.getElementById("btns_creados").appendChild(btn);
 
+        let btn2 = document.createElement("BUTTON");
+        btn2.innerHTML = "REINICIAR";
+        btn2.className = "btn-created2";
+        btn2.setAttribute("id","btn-created2");
+        btn2.onclick = reiniciarTemp;
+        document.getElementById("btns_creados").appendChild(btn2);
+    }
+    
     //Para que no se cree otra vez y entre en el condicional de arriba damos le valor de false a la variable de la condicion
     crear_boton = false;
+}
+
+//Esta es la funcion que hemos creado para cuando se le da click al boton iniciar temporizador creado a traves de JS anteriormente
+//Variable para que no se pueda dar click mas de una vez a incio
+let verificar_temporizador = true;
+function inicioTemp(){
+    if (verificar_temporizador == true) {
+        let segundos_temp = document.getElementById("milisegundos").innerHTML;
+        let minutos_temp = document.getElementById("minutos").innerHTML;
+        let horas_temp = document.getElementById("horas").innerHTML;
+
+        if (segundos_temp=="0" && minutos_temp=="0" && horas_temp=="0" || segundos_temp=="00" && minutos_temp=="00" && horas_temp=="00") {
+            alert("Introduce algún valor, gracias")
+        }else{
+    
+            idTemp = setInterval(() => {
+                    segundos_temp--;
+                    document.getElementById("milisegundos").innerHTML = segundos_temp;
+                    if (segundos_temp < 10) {
+                        document.getElementById("milisegundos").innerHTML = "0" + segundos_temp;
+                    }
+                    if (segundos_temp < 0) {
+                        segundos_temp = 59;
+                        document.getElementById("milisegundos").innerHTML = segundos_temp;
+                        if (minutos_temp >= 0) {
+                            minutos_temp--;
+                            document.getElementById("minutos").innerHTML = minutos_temp; 
+                        }
+                    }
+                    if (minutos_temp < 10) {
+                        document.getElementById("minutos").innerHTML = "0" + minutos_temp;
+                    }
+                    if (minutos_temp < 0) {
+                        minutos_temp = 59;
+                        document.getElementById("minutos").innerHTML = minutos_temp;
+                        if (horas_temp > 0) {
+                            horas_temp--;
+                            document.getElementById("horas").innerHTML = horas_temp;
+                        }
+                    }
+                    if (horas_temp < 10) {
+                        document.getElementById("horas").innerHTML = "0" + horas_temp;
+                    }
+                    if (horas_temp < 0) {
+                        horas_temp = "00";
+                        document.getElementById("horas").innerHTML = horas_temp + "horas";
+                    }
+                    if (segundos_temp=="0" && minutos_temp=="0" && horas_temp=="0" ){
+                        document.getElementById("horas").innerHTML = "00";
+                        document.getElementById("minutos").innerHTML = "00";
+                        document.getElementById("milisegundos").innerHTML = "00";
+                        alert("Se acabo");
+                        clearInterval(idTemp);
+                        verificar_temporizador = true;
+
+                        
+                    }
+                }
+            , 1000);
+            verificar_temporizador = false;
+        }
+    }
+
+}
+
+
+function reiniciarTemp(){
+    if (verificar_temporizador==false) {
+        clearInterval(idTemp);
+        verificar_temporizador = true;
+        document.getElementById("milisegundos").innerHTML = "00";
+        document.getElementById("minutos").innerHTML = "00";
+        document.getElementById("horas").innerHTML = "00";
+    }
 }

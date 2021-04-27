@@ -74,7 +74,7 @@
     padding: 1rem;
     background: rgb(59, 182, 59);
     color: white;
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
 }
 
@@ -119,11 +119,26 @@
     
 }
 
+#btns{
+    display: flex;
+    flex-direction: column;
+}
+
 /*Boton que se crea al hacer click en aceptar del modal*/
 .btn-created{
     padding: 1rem;
     font-size: 1rem;
     background: rgb(93, 168, 93);
+    border-radius: 5px;
+    color: white;
+    outline:none;
+    cursor: pointer;
+}
+
+.btn-created2{
+    padding: 1rem;
+    font-size: 1rem;
+    background: rgb(160, 28, 28);
     border-radius: 5px;
     color: white;
     outline:none;
@@ -175,6 +190,11 @@
     }
 
     .btn-created{
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .btn-created2{
         padding: 0.8rem;
         font-size: 0.8rem;
     }
