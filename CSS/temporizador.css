@@ -88,9 +88,18 @@
     flex-direction: column;
 }
 
+.horas1{
+    display: flex;
+    flex-direction: column;
+}
+
 .segundos1{
     display: flex;
     flex-direction: column;
+}
+
+#milisegundos{
+    font-size: 6rem;
 }
 
 .opciones-numeros{
@@ -107,6 +116,22 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    
+}
+
+/*Boton que se crea al hacer click en aceptar del modal*/
+.btn-created{
+    padding: 1rem;
+    font-size: 1rem;
+    background: rgb(93, 168, 93);
+    border-radius: 5px;
+    color: white;
+    outline:none;
+    cursor: pointer;
+}
+
+#btns{
+    margin-top: 1.2rem;
 }
 
 .btn-aceptar button{
@@ -118,4 +143,87 @@
     border-radius: 5px;
     color: white;
     outline:none;
+    cursor: pointer;
+}
+
+@media (max-width: 920px){
+    .cabecera{
+        font-size: 1.6rem;
+    }
+
+    .modal-section{
+        font-size: 1rem;
+    }
+
+    .btn-cambio{
+        display: none;
+    }
+
+    .opciones-numeros{
+        padding: 0.3;
+    }
+
+    .btn-aceptar button{
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        margin: 0 0.8rem 0.8rem 0;
+    }
+
+    .Btn{
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .btn-created{
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .barra a{
+        font-size: 1.5rem;
+    }
+
+    .barra{
+        width: 60%;
+    }
+
+    #milisegundos{
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 650px){
+    .opciones-numeros{
+        padding: 0;
+        font-size: 0.8rem;
+    }
+
+    option{
+        padding: 0;
+        font-size: 1rem;
+    }
+
+
+    .cabecera{
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .close{
+        font-size: 1rem;
+        margin-right: 0.5rem;
+    }
+
+    .modal-section p{
+        font-size: 0.85rem;
+    }
+
+    .btn-aceptar button{
+        font-size: 0.85rem;
+        padding: 0.3rem;
+    }
+
+    #milisegundos{
+        font-size: 2.5rem;
+    }
 }

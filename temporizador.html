@@ -22,10 +22,10 @@
         </div>
         <div class="cronometro">
             <div class="minutos">
-                <p id="minutos">00</p>
+                <p id="horas">00</p>
             </div>
             <div class="segundos">
-                <p id="segundos">00</p>
+                <p id="minutos">00</p>
             </div>
             <div class="milisegundos">
                 <p id="milisegundos">00</p>
@@ -35,7 +35,10 @@
         <!-- ---------------MODAL DEL DOCUMENTO---------------- -->
     
         <!-- Trigger/Open The Modal -->
-        <button id="myBtn" class="Btn">Editar temporizador</button>
+        <div id="btns">
+            <button id="myBtn" class="Btn">Editar temporizador</button>
+
+        </div>
         
         <!-- The Modal -->
         <div id="myModal" class="modal">
@@ -51,34 +54,37 @@
             <div class="modal-section">
                 <div class="horas1">
                     <p>Horas</p>
+                    <div class="descr">
+                        <button class="opciones-numeros btn-cambio" onclick="selectorMenosHoras()"><</button>
+                        <select name="" id="selector2" class="opciones-numeros"></select>
+                        <button class="opciones-numeros btn-cambio" onclick="selectorMasHoras()">></button>
+                    </div>
                 </div>
                 <div class="minutos1">
                     <p>Minutos</p>
                     <div class="descr">
-                        <button class="opciones-numeros" onclick="selectorMenosMin()"><</button>
+                        <button class="opciones-numeros btn-cambio" onclick="selectorMenosMin()"><</button>
                         <select name="" id="selector" class="opciones-numeros"></select>
-                        <button class="opciones-numeros" onclick="selectorMasMin()">></button>
+                        <button class="opciones-numeros btn-cambio" onclick="selectorMasMin()">></button>
                     </div>
                 </div>
                 <div class="segundos1">
                     <p>Segundos</p>
                     <div class="descr">
-                        <button class="opciones-numeros" onclick="selectorMenosSec()"><</button>
+                        <button class="opciones-numeros btn-cambio" onclick="selectorMenosSec()"><</button>
                         <select name="" id="selector1" class="opciones-numeros"></select>
-                        <button class="opciones-numeros" onclick="selectorMasSec()">></button>
+                        <button class="opciones-numeros btn-cambio" onclick="selectorMasSec()">></button>
                     </div>
                 </div>
 
             </div>  
 
             <div class="btn-aceptar">
-                <button>Aceptar</button>
+                <button onclick="setTemp()">Aceptar</button>
             </div>
-            
-        </div>
-    
-    </div>
 
+        </div>
+    </div>
     
     <script src="JS/cronometro.js"></script>
     <script src="JS/temporizador.js"></script>
