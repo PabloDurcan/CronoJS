@@ -42,7 +42,7 @@ function generarOpciones() {
     } 
     
     //Horas
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 11; i++) {
         let x = document.getElementById("selector2");
         let option = document.createElement("option");
         option.text=i;
@@ -97,7 +97,7 @@ function selectorMasHoras(){
     let contador = document.getElementById("selector2").value;
     contador++;
     document.getElementById("selector2").value = contador;
-    if (contador > 99) {
+    if (contador > 10) {
         document.getElementById("selector2").value = 0;
     }
 }
