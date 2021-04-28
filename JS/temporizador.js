@@ -166,6 +166,22 @@ function setTemp(){
     
     //Para que no se cree otra vez y entre en el condicional de arriba damos le valor de false a la variable de la condicion
     crear_boton = false;
+
+    try {
+        clearInterval(idTemp);
+    } catch (error) {
+    }
+        try {
+            clearInterval(idTemp2);
+        } catch (error) {
+        }
+        try {
+            clearInterval(idTemp3);
+        } catch (error) {
+        }try {
+            clearInterval(idTemp4);
+        } catch (error) {
+        }
 }
 
 //Esta es la funcion que hemos creado para cuando se le da click al boton iniciar temporizador creado a traves de JS anteriormente
@@ -184,6 +200,7 @@ function inicioTemp(){
             idTemp = setInterval(() => {
                     segundos_temp--;
                     document.getElementById("milisegundos").innerHTML = segundos_temp;
+                    
                     if (segundos_temp < 10) {
                         document.getElementById("milisegundos").innerHTML = "0" + segundos_temp;
                     }
@@ -211,16 +228,59 @@ function inicioTemp(){
                     }
                     if (horas_temp < 0) {
                         horas_temp = "00";
-                        document.getElementById("horas").innerHTML = horas_temp + "horas";
+                        document.getElementById("horas").innerHTML = horas_temp;
+                    }
+                    if (segundos_temp == "20" && minutos_temp=="0" && horas_temp=="0") {
+                        let audio_alarma = document.getElementById("audio-alarma");
+                        audio_alarma.play();
+                        idTemp2 = setInterval(() => {
+                            if (segundos_temp % 2 ==0) {
+                                document.getElementById("cuerpo_tempo").style.background = "lightblue";
+                            }else{
+                                document.getElementById("cuerpo_tempo").style.background = "red";
+                            }
+                            
+                        }, 500);
+                    }
+                    if (segundos_temp == "10" && minutos_temp=="0" && horas_temp=="0") {
+                        let audio_alarma5s = document.getElementById("audio-alarma5s");
+                        audio_alarma5s.play();
+                        idTemp3 = setInterval(() => {
+                            if (segundos_temp % 2 ==0) {
+                                document.getElementById("cuerpo_tempo").style.background = "lightblue";
+                            }else{
+                                document.getElementById("cuerpo_tempo").style.background = "red";
+                            }
+                            
+                        }, 500);
+                    }
+                    if (segundos_temp == "5" && minutos_temp=="0" && horas_temp=="0") {
+                        let audio_alarma3s = document.getElementById("audio-alarma3s");
+                        audio_alarma3s.play();
+                        idTemp4 = setInterval(() => {
+                            if (segundos_temp % 2 ==0) {
+                                document.getElementById("cuerpo_tempo").style.background = "lightblue";
+                            }else{
+                                document.getElementById("cuerpo_tempo").style.background = "red";
+                            }
+                            
+                        }, 500);
                     }
                     if (segundos_temp=="0" && minutos_temp=="0" && horas_temp=="0" ){
+                        let audio_alarma_samsung = document.getElementById("audio-alarma-samsung");
+                        audio_alarma_samsung.play();
                         document.getElementById("horas").innerHTML = "00";
                         document.getElementById("minutos").innerHTML = "00";
                         document.getElementById("milisegundos").innerHTML = "00";
-                        alert("Se acabo");
                         clearInterval(idTemp);
+                        try {
+                            clearInterval(idTemp2);
+                            clearInterval(idTemp3);
+                            clearInterval(idTemp4);
+                        } catch (error) {
+                        }
                         verificar_temporizador = true;
-                        
+                        document.getElementById("cuerpo_tempo").style.background = "lightblue";
                     }
                 }
             , 1000);
@@ -234,9 +294,29 @@ function inicioTemp(){
 function reiniciarTemp(){
     if (verificar_temporizador==false) {
         clearInterval(idTemp);
+        try {
+            clearInterval(idTemp2);
+        } catch (error) {
+        }
+        try {
+            clearInterval(idTemp3);
+        } catch (error) {
+        }try {
+            clearInterval(idTemp4);
+        } catch (error) {
+        }
         verificar_temporizador = true;
         document.getElementById("milisegundos").innerHTML = "00";
         document.getElementById("minutos").innerHTML = "00";
         document.getElementById("horas").innerHTML = "00";
+        let audio_alarma = document.getElementById("audio-alarma");
+        audio_alarma.pause();
+        let audio_alarma5s = document.getElementById("audio-alarma5s");
+        audio_alarma5s.pause();
+        let audio_alarma3s = document.getElementById("audio-alarma3s");
+        audio_alarma3s.pause();
+        document.getElementById("cuerpo_tempo").style.background = "lightblue";
     }
+    document.getElementById("cuerpo_tempo").style.background = "lightblue";
+
 }
